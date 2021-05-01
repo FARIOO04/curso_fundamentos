@@ -6,7 +6,6 @@ public class Principal {
 
     public static void mostrarMenu(){
         Scanner scan = new Scanner(System.in); 
-        Sensor s2 = new Sensor("Temperatura", 0);
         while(true){
 
             System.out.println("----Ingrese una opcion----");
@@ -94,9 +93,8 @@ public class Principal {
                 continue;
 
                 case 666:
-                if(s2.getTipo().equals("Temperatura")){
+
                     Sensor.ordenarSensor();
-                }
                 continue;
             }
             break;
