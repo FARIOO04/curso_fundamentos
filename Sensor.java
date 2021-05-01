@@ -1,4 +1,6 @@
- public static Sensor[] sensores = new Sensor[8];
+ public class Sensor {
+
+    public static Sensor[] sensores = new Sensor[8];
     public static int tamano = 8;
     public static int posAnadir = 0;
 
