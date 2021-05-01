@@ -1,6 +1,4 @@
-public class Sensor {
-
-    public static Sensor[] sensores = new Sensor[8];
+ public static Sensor[] sensores = new Sensor[8];
     public static int tamano = 8;
     public static int posAnadir = 0;
 
@@ -15,6 +13,7 @@ public class Sensor {
     public Sensor(String t, double v) {
         this.tipo = t;
         this.valor = v;
+        sensores[posAnadir]= this;
         posAnadir++;
     }
 
@@ -44,9 +43,9 @@ public class Sensor {
         String info = " ";
         if(posAnadir > 0){
             for (int i = 0; i < Sensor.posAnadir; i++) {
-                if (sensores[i] != null) {
-                    info = sensores[i].toString() + info;
-                }
+
+                info = sensores[i].toString() + info;
+
             }
         }else{
             System.out.println("NO HAY SENSORES ALMACENADOS");
@@ -60,12 +59,10 @@ public class Sensor {
 
     public static String sensoresTemperatura() {
         String info = " ";
-        for (int i = 0; i < Sensor.posAnadir + 1; i++) {                         
-            if(sensores[i] != null){
-                if (sensores[i].getTipo().equals("temperatura")) {
-                    System.out.println(sensores[i].toString() + info);
-                }                     
-            }
+        for (int i = 0; i < Sensor.posAnadir; i++) {                         
+            if (sensores[i].getTipo().equals("temperatura")) {
+                System.out.println(sensores[i].toString() + info);
+            }                     
         }
         return info;
     }
@@ -74,16 +71,12 @@ public class Sensor {
         Sensor temp;
         int n = tamano;
         for (int i = 1; i < n; i++) {
-            for (int j = 0; j < n - i; j++) {
+            for (int j = 0; j < n; j++) {
                 if(sensores[i].getTipo().equals("temperatura")){
-                    if (sensores[i] != null) {
-                        if (sensores[j] != null) {
-                            if (sensores[j].getValor() > sensores[j + 1].getValor()) {
-                                temp = sensores[j];
-                                sensores[j] = sensores[j + 1];
-                                sensores[j + 1] = temp;
-                            }
-                        }
+                    if (sensores[j].getValor() > sensores[j + 1].getValor()) {
+                        temp = sensores[j];
+                        sensores[j] = sensores[j + 1];
+                        sensores[j + 1] = temp;
                     }
                 }
             }
