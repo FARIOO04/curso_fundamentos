@@ -69,7 +69,7 @@ public class Vehiculo{
     public static String toStringVehiculos(){
         String info = " ";
         if(posAnadir > 0){
-            for(int i= 0; i < Vehiculo.posAnadir;i++ ){
+            for(int i= 0; i < Vehiculo.posAnadir; i++ ){
                 info = vehiculos[i].toString()+info;
             }
         }
@@ -85,10 +85,15 @@ public class Vehiculo{
 
      public static String vehiculosVerdes() {
         String info = " ";
+        boolean contador= false;        
         for (int i = 0; i < Vehiculo.posAnadir; i++) {
             if (vehiculos[i].getColor().equals("verde")) {
                 System.out.println(vehiculos[i].toString() + info);
+                contador= true;
             }
+        }
+        if(!contador){
+            System.out.println("NO HAY NINGUN CARRO VERDE");
         }
         return info;
     }
